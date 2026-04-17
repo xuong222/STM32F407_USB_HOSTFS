@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER,USE_USB_OTG_FS</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\USER;..\FWLIB\inc;..\Board_Supports_Package\Timer;..\Board_Supports_Package\LED;..\Ymodem;..\FATFS\exfuns;..\FATFS\src;..\USB\STM32_USB_OTG_Driver\inc;..\USB\STM32_USB_HOST_Library\Core\inc;..\USB\STM32_USB_HOST_Library\Class\MSC\inc;..\USB\USB_APP;..\MALLOC;..\IAP_UDisk</IncludePath>
+              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\USER;..\FWLIB\inc;..\Board_Supports_Package\Timer;..\Board_Supports_Package\LED;..\Ymodem;..\FATFS\exfuns;..\FATFS\src;..\USB\STM32_USB_OTG_Driver\inc;..\USB\STM32_USB_HOST_Library\Core\inc;..\USB\STM32_USB_HOST_Library\Class\MSC\inc;..\USB\USB_APP;..\MALLOC;..\IAP_UDisk;..\Board_Supports_Package\KEY</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -479,6 +479,16 @@
               <FileName>LED_Driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Board_Supports_Package\LED\LED_Driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>Key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Board_Supports_Package\KEY\Key.c</FilePath>
+            </File>
+            <File>
+              <FileName>Key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Board_Supports_Package\KEY\Key.h</FilePath>
             </File>
           </Files>
         </Group>

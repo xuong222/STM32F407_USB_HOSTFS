@@ -2,6 +2,7 @@
 #include "delay.h"
 #include "Timer_Driver.h"
 #include "LED_Driver.h"
+#include "Key.h"
 
 #include "exfuns.h"
 #include "malloc.h"
@@ -64,6 +65,7 @@ int main(void)
     delay_init(168);  //初始化延时函数
     FLASH_If_Init();
     LED_PortInit();
+	KEY_Init();
     
 	my_mem_init(SRAMIN);	//初始化内部内存池	
  	exfuns_init();			//为fatfs相关变量申请内存 
@@ -79,12 +81,20 @@ int main(void)
     while(!IAPdownload)     //只有f_open 返回0 才烧录成功，否则为超时
     {
         USBH_Process(&USB_OTG_Core, &USB_Host);
-        if(SysTimeGet() - lu32_Tick > 2000)IAPdownload = 1;
+ //       if(SysTimeGet() - lu32_Tick > 2000)IAPdownload = 1;		
+		if(KEY_Scan() == 1)
+		{
+			IAPdownload = 1;
+		}
     }
 
     FLASH_If_Finish();
     IAP_Close();
+	LED_1(1);
+	LED_2(0);
+	LED_3(0);
     IAP_LoadApp(APPLICATION_START_ADDRESS); //程序跳转
+
     
     while(1){}
         

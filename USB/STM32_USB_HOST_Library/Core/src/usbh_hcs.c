@@ -113,13 +113,10 @@ uint8_t USBH_Open_Channel  (USB_OTG_CORE_HANDLE *pdev,
   pdev->host.hc[hc_num].ep_type = ep_type;  
   pdev->host.hc[hc_num].max_packet = mps; 
   pdev->host.hc[hc_num].speed = speed; 
-  pdev->host.hc[hc_num].toggle_in = 0; 
-  pdev->host.hc[hc_num].toggle_out = 0;   
-  if(speed == HPRT0_PRTSPD_HIGH_SPEED)
-  {
-    pdev->host.hc[hc_num].do_ping = 1;
-  }
-  
+  pdev->host.hc[hc_num].toggle_in = 0;
+  pdev->host.hc[hc_num].toggle_out = 0;
+  pdev->host.hc[hc_num].do_ping = (speed == HPRT0_PRTSPD_HIGH_SPEED) ? 1 : 0;
+
   USB_OTG_HC_Init(pdev, hc_num) ;
   
   return HC_OK; 
@@ -155,11 +152,13 @@ uint8_t USBH_Modify_Channel (USB_OTG_CORE_HANDLE *pdev,
     pdev->host.hc[hc_num].max_packet = mps; 
   }
   
-  if((pdev->host.hc[hc_num].speed != speed ) && (speed != 0 )) 
+  if((pdev->host.hc[hc_num].speed != speed ) && (speed != 0 ))
   {
-    pdev->host.hc[hc_num].speed = speed; 
+    pdev->host.hc[hc_num].speed = speed;
   }
-  
+
+  pdev->host.hc[hc_num].do_ping = (pdev->host.hc[hc_num].speed == HPRT0_PRTSPD_HIGH_SPEED) ? 1 : 0;
+
   USB_OTG_HC_Init(pdev, hc_num);
   return HC_OK; 
 

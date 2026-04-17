@@ -14,6 +14,7 @@
 "..\obj\stm32f4xx_tim.o"
 "..\obj\timer_driver.o"
 "..\obj\led_driver.o"
+"..\obj\key.o"
 "..\obj\diskio.o"
 "..\obj\ff.o"
 "..\obj\exfuns.o"

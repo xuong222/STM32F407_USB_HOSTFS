@@ -38,6 +38,7 @@
 ..\obj\main.o: ..\SYSTEM\sys\sys.h
 ..\obj\main.o: ..\Board_Supports_Package\Timer\Timer_Driver.h
 ..\obj\main.o: ..\Board_Supports_Package\LED\LED_Driver.h
+..\obj\main.o: ..\Board_Supports_Package\KEY\Key.h
 ..\obj\main.o: ..\FATFS\exfuns\exfuns.h
 ..\obj\main.o: ..\FATFS\src\ff.h
 ..\obj\main.o: ..\FATFS\src\integer.h
